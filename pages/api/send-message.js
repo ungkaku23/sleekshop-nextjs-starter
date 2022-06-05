@@ -7,5 +7,4 @@ export default function sendMessage(req, res) {
   const session = getCookie('session', { req, res });
 
   console.log(email, message);
-  
 }
