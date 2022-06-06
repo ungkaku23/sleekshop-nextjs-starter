@@ -24,12 +24,12 @@ export default function Login() {
     e.preventDefault()
 
     const {
-      email,
+      username,
       password
     } = e.target.elements;
 
     axios.post('/api/login', {
-      email: email.value,
+      username: username.value,
       password: password.value
     })
       .then(res => {
@@ -52,6 +52,7 @@ export default function Login() {
 
     const {
       email,
+      username,
       password,
       password2
     } = e.target.elements;
@@ -59,6 +60,7 @@ export default function Login() {
     try {
       const createdUser = await axios.post('/api/create-user', {
         email: email.value,
+        username: username.value,
         password: password.value,
         password2: password2.value
       })
@@ -83,7 +85,7 @@ export default function Login() {
 
           <form onSubmit={loginSubmit} className="mt-4">
             <label className="block">
-              <input type="email" className="block w-full bg-white rounded-md border p-2 focus:outline-none" placeholder="E-Mail" name="email" required/>
+              <input type="text" className="block w-full bg-white rounded-md border p-2 focus:outline-none" placeholder="username" name="username" required/>
             </label>
             <label className="block mt-3">
               <input type="password" className="block w-full bg-white rounded-md border p-2 focus:outline-none" placeholder="Passwort" name="password" required/>
@@ -104,6 +106,9 @@ export default function Login() {
             <form onSubmit={registerSubmit}>
               <label className="block">
                 <input type="email" className="block w-full bg-white rounded-md border p-2 focus:outline-none" placeholder="E-Mail" name="email" required/>
+              </label>
+              <label className="block mt-3">
+                <input type="text" className="block w-full bg-white rounded-md border p-2 focus:outline-none" placeholder="username" name="username" required/>
               </label>
               <label className="block mt-3">
                 <input type="password" className="block w-full bg-white rounded-md border p-2 focus:outline-none" placeholder="Passwort" name="password" required/>

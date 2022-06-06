@@ -9,7 +9,7 @@ export default function getProduct(req, res) {
 
   return sleekShop.shopobjects.seoGetProductDetails(slug, "DE", [])
     .then((response) => {
-      return res.status(200).json({...response.data})
+      return res.status(200).json(response)
     })
     .catch((error) => {
       return res.status(403).json({expired: true, message: apiText.sessionExpired})

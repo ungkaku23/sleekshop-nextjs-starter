@@ -18,7 +18,7 @@ export default function setUserData(req, res) {
     }
   )
   .then((response) => {
-    return res.status(200).json({...response.data})
+    return res.status(200).json(response)
   })
   .catch((error) => {
     console.log(error);

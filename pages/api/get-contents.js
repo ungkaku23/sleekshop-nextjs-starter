@@ -8,7 +8,7 @@ export default function getContents(req, res) {
   
   return sleekShop.shopobjects.getContentDetails(id, "de_DE")
     .then((response) => {
-      return res.status(200).json({...response.data})
+      return res.status(200).json(response)
     })
     .catch((error) => {
       return res.status(403).json({error})

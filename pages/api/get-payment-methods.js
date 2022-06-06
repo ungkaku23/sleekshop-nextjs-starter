@@ -5,7 +5,7 @@ export default function getPaymentMethods(req, res) {
 
   return sleekShop.payment.getPaymentMethods()
     .then((response) => {
-      return res.status(200).json({...response.data})
+      return res.status(200).json(response)
     })
     .catch((error) => {
       return res.status(403).json({error})

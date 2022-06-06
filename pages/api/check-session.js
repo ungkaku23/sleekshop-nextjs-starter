@@ -12,7 +12,7 @@ export default function checkSession(req, res) {
 
   return sleekShop.sessions.getNewSession()
     .then((response) => {
-      setCookies('session', response.data.code, { req, res, expires: new Date(response.data.expiration_date) });
+      setCookies('session', response.code, { req, res, expires: new Date(response.expiration_date) });
       return res.status(200).json({expired: false})
     })
     .catch((error) => {

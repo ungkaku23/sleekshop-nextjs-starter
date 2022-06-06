@@ -7,14 +7,14 @@ export default function createUser(req, res) {
   return sleekShop.user.registerUser(
     "de_DE", 
     {
-      "username": email,
+      "username": username,
       "passwd1": password,
       "passwd2": password2,
       "email": email
     }
   )
   .then((response) => {
-    return res.status(200).json({...response.data})
+    return res.status(200).json(response)
   })
   .catch((error) => {
     console.log(error);

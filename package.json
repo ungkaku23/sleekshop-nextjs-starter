@@ -6,7 +6,7 @@
     "start": "next start -p $PORT"
   },
   "dependencies": {
-    "@trefox/sleekshop-js": "^0.1.3",
+    "@trefox/sleekshop-js": "^0.1.5",
     "axios": "^0.23.0",
     "cookies-next": "^2.0.2",
     "next": "^11.1.4",

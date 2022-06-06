@@ -27,7 +27,8 @@ export default function Product() {
         .then(res => {
           console.log(res.data);
           setProduct(res.data)
-          setActiveImage(res.data.attributes.img1.value)
+          setActiveImage(`https://dummyimage.com/500x500/000000/48ff00.png&text=${res.data?.name.replace(/ /gi, '+')}`)
+          // setActiveImage(res.data.attributes?.img1?.value ? res.data.attributes?.img1?.value : `https://dummyimage.com/500x500/000000/48ff00.png&text=${res.data.name.replace(/ /gi, '+')}`)
         })
     }
   }, [slug])
@@ -37,11 +38,10 @@ export default function Product() {
     setCartOpen(true)
     setLoading(true)
 
-    axios.post('/api/add-to-cart', { id: product.id, quantity: count })
+    axios.post('/api/add-to-cart', { id: product.id, quantity: count, attributes: [] })
       .then(res => {
-        setCartItems([...cartItems, { id: product.id, quantity: count }])
+        setCartItems([...cartItems, { id: product.id, quantity: count, attributes: [] }])
       })
-
   }
 
   if (product) {

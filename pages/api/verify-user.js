@@ -9,7 +9,7 @@ export default function verifyUser(req, res) {
 
   return sleekShop.user.verifyUser(userId, session)
     .then((response) => {
-      return res.status(200).json({...response.data})
+      return res.status(200).json(response)
     })
     .catch((error) => {
       console.log(error);

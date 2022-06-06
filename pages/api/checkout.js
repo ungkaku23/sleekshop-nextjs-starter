@@ -5,9 +5,9 @@ export default function checkout(req, res) {
   const session = getCookie('session', { req, res });
   const sleekShop = new SleekShop(process.env.SERVER, process.env.LICENCE_USERNAME, process.env.LICENCE_PASSWORD, process.env.LICENCE_SECRET);
 
-  return sleekShop.sessions.checkout(session)
+  return sleekShop.orders.checkout(session)
     .then((response) => {
-      return res.status(200).json({...response.data})
+      return res.status(200).json(response)
     })
     .catch((error) => {
       console.log(error);

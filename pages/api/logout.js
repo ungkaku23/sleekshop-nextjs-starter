@@ -7,7 +7,7 @@ export default function logout(req, res) {
 
   return sleekShop.user.logoutUser(session)
     .then((response) => {
-      return res.status(200).json({...response.data})
+      return res.status(200).json(response)
     })
     .catch((error) => {
       return res.status(403).json({error})

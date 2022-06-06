@@ -11,7 +11,7 @@ export default function doPayment(req, res) {
   return sleekShop.payment.doPayment(id, [])
     .then((response) => {
       console.log(response);
-      return res.status(200).json({...response.data})
+      return res.status(200).json(response)
     })
     .catch((error) => {
       console.log(error);

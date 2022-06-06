@@ -68,7 +68,7 @@ export default function Checkout() {
         id_payment_method: activePayment.id
       })
         .then(res => {
-          console.log(res);
+          console.log("orderdetails: ", res);
           setOrderDetails(res.data)
           setCurrentStep(currentStep + 1)
         })

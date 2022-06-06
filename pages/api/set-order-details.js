@@ -1,6 +1,4 @@
 import { setCookies, getCookie } from 'cookies-next';
-import axios from "axios";
-import qs from "qs";
 const { default: SleekShop } = require("@trefox/sleekshop-js");
 
 export default function setOrderDetails(req, res) {
@@ -52,7 +50,7 @@ export default function setOrderDetails(req, res) {
     []
   )
     .then((response) => {
-      return res.status(200).json({...response.data})
+      return res.status(200).json(response)
     })
     .catch((error) => {
       console.log(error);
